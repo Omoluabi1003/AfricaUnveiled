@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Header from '../components/Header';
 import AfricaIntelligenceAtlasLoader from '../components/AfricaIntelligenceAtlasLoader';
 import ExternalHeroVideo from '../components/ExternalHeroVideo';
-import { accessTiers, atlasFilters, featuredVoices, footerColumns, heroPanels, houseExperiences, liveDays, metrics, partnerCategories, premiumCards, programs } from '../lib/platformData';
+import { accessPathways, accessTiers, atlasFilters, featuredVoices, footerColumns, heroPanels, houseExperiences, liveDays, metrics, partnerCategories, peopleProfiles, premiumCards, programs, supportItems } from '../lib/platformData';
 
 const SectionIntro = ({ eyebrow, title, copy }) => (
   <div className="section-intro reveal">
@@ -17,6 +17,43 @@ const Card = ({ eyebrow, title, copy }) => (
     <span>{eyebrow}</span>
     <h3>{title}</h3>
     <p>{copy}</p>
+  </article>
+);
+
+
+const initialsFor = (name) => name.split(' ').map((part) => part[0]).join('').slice(0, 2).toUpperCase();
+
+const PersonCard = ({ name, role, country, track, category, cta }) => (
+  <article className="person-card reveal">
+    <div className="person-card__topline">
+      <div className="person-avatar" aria-hidden="true"><span>{initialsFor(name)}</span></div>
+      <span className="category-badge">{category}</span>
+    </div>
+    <h3>{name}</h3>
+    <p>{role}</p>
+    <dl>
+      <div><dt>Country</dt><dd>{country}</dd></div>
+      <div><dt>Track</dt><dd>{track}</dd></div>
+    </dl>
+    <a href="#access">{cta}</a>
+  </article>
+);
+
+const SupportItemCard = ({ title, signal, need, accent }) => (
+  <article className={`support-item-card support-item-card--${accent} reveal`}>
+    <span className="support-signal" aria-hidden="true">{signal}</span>
+    <h3>{title}</h3>
+    <p>{need}</p>
+    <a href="mailto:partners@africaunveiled.org">Discuss support</a>
+  </article>
+);
+
+const PathwayCard = ({ title, copy, cta, index }) => (
+  <article className="pathway-card reveal">
+    <span>0{index + 1}</span>
+    <h3>{title}</h3>
+    <p>{copy}</p>
+    <a href="mailto:access@africaunveiled.org">{cta}</a>
   </article>
 );
 
@@ -110,6 +147,11 @@ export default function HomePage() {
         <div className="card-grid three">{featuredVoices.map((voice) => <article className="voice-card reveal" key={voice.name}><div className="video-surface" aria-hidden="true"><span>▶</span></div><h3>{voice.name}</h3><p>{voice.role}</p><small>{voice.topic}</small></article>)}</div>
       </section>
 
+      <section className="section ivory people-section" id="people" aria-labelledby="people-title">
+        <SectionIntro eyebrow="People & Delegations" title="The people shaping Africa’s global narrative." copy="Africa Unveiled brings together leaders, creators, investors, institutions, and diaspora voices advancing Africa’s cultural, diplomatic, and economic influence during UNGA Week." />
+        <div className="people-grid">{peopleProfiles.map((person) => <PersonCard key={person.name} {...person} />)}</div>
+      </section>
+
       <section className="section ivory" id="program" aria-labelledby="program-title">
         <SectionIntro eyebrow="Program Architecture" title="A modular diplomatic platform, designed as a premium guest journey." />
         <div className="card-grid three">{programs.map((program) => <article className="program-card reveal" key={program.title}><h3>{program.title}</h3><p>{program.copy}</p></article>)}</div>
@@ -141,9 +183,19 @@ export default function HomePage() {
         <div className="logo-wall">{partnerCategories.map((partner) => <div className="logo-tile reveal" key={partner}><span>{partner.slice(0, 2)}</span><small>{partner}</small></div>)}</div>
       </section>
 
+      <section className="section partner-support" id="partner-support" aria-labelledby="partner-support-title">
+        <SectionIntro eyebrow="Partner Support" title="Support the infrastructure behind Africa’s global visibility." copy="Partners can support the people, programming, media capture, hospitality, and intelligence layers that help Africa Unveiled operate as a premium UNGA platform." />
+        <div className="support-grid">{supportItems.map((item) => <SupportItemCard key={item.title} {...item} />)}</div>
+      </section>
+
       <section className="section intelligence" id="intelligence" aria-labelledby="intelligence-title">
         <SectionIntro eyebrow="Built on Intelligence" title="Connecting Culture, Policy, Investment, and Influence" copy="Africa Unveiled leverages modern digital architecture, ecosystem intelligence, and strategic engagement design to support meaningful collaboration across governments, institutions, investors, creators, and development partners." />
         <p className="supporting-statement reveal">Platform strategy, geospatial intelligence, and digital experience architecture by ETL GIS Consulting LLC.</p>
+      </section>
+
+      <section className="section access-pathways" id="pathways" aria-labelledby="pathways-title">
+        <SectionIntro eyebrow="Curated Access Pathways" title="Choose the right route into the Africa Unveiled platform." copy="Every pathway is designed to protect the quality of the room while making participation legible for delegations, media, sponsors, creators, and institutional partners." />
+        <div className="pathway-grid">{accessPathways.map((pathway, index) => <PathwayCard key={pathway.title} {...pathway} index={index} />)}</div>
       </section>
 
       <section className="section" id="access" aria-labelledby="access-title">
