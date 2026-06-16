@@ -18,6 +18,46 @@ const Card = ({ eyebrow, title, copy }) => (
   </article>
 );
 
+const AfricaMapMotif = ({ className = '' }) => (
+  <svg className={`africa-map-motif ${className}`} viewBox="0 0 420 520" role="img" aria-hidden="true" focusable="false">
+    <path d="M219 18c-24 4-44 16-58 34l-31 1-21 25 11 32-32 30 4 37-31 28 14 39 42 11 8 38 38 29 8 51 42 24 18 67 47 32 27-36-9-58 42-58-13-50 35-47-15-54 20-32-27-36-3-43-36-18-21-49-48-24Z" />
+    <path d="M151 70c41 16 75 37 101 64 35 36 54 79 58 131M118 253c74-21 145-13 215 25M207 386c21-42 60-77 118-106" />
+  </svg>
+);
+
+const CulturalPatternOverlay = ({ className = '' }) => <div className={`cultural-pattern-overlay ${className}`} aria-hidden="true" />;
+
+const DiasporaArcGrid = () => (
+  <svg className="diaspora-arc-grid" viewBox="0 0 900 520" aria-hidden="true" focusable="false">
+    <path d="M190 333C302 176 523 91 764 112" />
+    <path d="M205 365C352 260 548 210 774 235" />
+    <path d="M233 292C370 114 603 40 827 75" />
+    <circle cx="210" cy="333" r="5" />
+    <circle cx="764" cy="112" r="5" />
+    <circle cx="774" cy="235" r="4" />
+  </svg>
+);
+
+const AfricanIdentityBackdrop = () => (
+  <div className="african-identity-backdrop" aria-hidden="true">
+    <AfricaMapMotif />
+    <DiasporaArcGrid />
+    <CulturalPatternOverlay />
+  </div>
+);
+
+const AtlasPreview = () => (
+  <div className="atlas-preview-map" aria-hidden="true">
+    <AfricaMapMotif className="atlas-africa" />
+    <div className="atlas-coordinate-grid" />
+    <span className="atlas-node node-accra">Accra</span>
+    <span className="atlas-node node-lagos">Lagos</span>
+    <span className="atlas-node node-nairobi">Nairobi</span>
+    <span className="atlas-node node-joburg">Johannesburg</span>
+    <span className="atlas-node node-newyork">New York</span>
+  </div>
+);
+
 export default function HomePage() {
   return (
     <main className="platform-shell">
@@ -26,11 +66,13 @@ export default function HomePage() {
       <section className="hero-sequence" aria-label="Africa Unveiled platform introduction">
         {heroPanels.map((hero, index) => (
           <article className={`cinematic-hero hero-${hero.id}`} key={hero.id} aria-labelledby={`${hero.id}-title`}>
+            <AfricanIdentityBackdrop />
             <div className="hero-orb" aria-hidden="true" />
             <div className="hero-copy reveal">
               <p className="eyebrow">{hero.eyebrow}</p>
               <h1 id={`${hero.id}-title`}>{hero.headline}</h1>
               <p className="hero-lede">{hero.copy}</p>
+              {index === 0 ? <p className="identity-statement">Africa is not a backdrop. Africa is the thesis.</p> : null}
               <div className="hero-actions" aria-label={`${hero.eyebrow} calls to action`}>
                 <a className="button primary" href={hero.primaryHref}>{hero.primary}</a>
                 <a className="button secondary" href={hero.secondaryHref}>{hero.secondary}</a>
@@ -50,8 +92,9 @@ export default function HomePage() {
       </section>
 
       <section className="section house" id="house" aria-labelledby="house-title">
-        <SectionIntro eyebrow="Africa Unveiled House @ UNGA" title="A flagship New York destination for cultural diplomacy, investment dialogue, and African soft power." />
-        <div className="house-grid">{houseExperiences.map((item) => <article className="house-card reveal" key={item}><span /> <h3>{item}</h3><p>Curated programming, executive hospitality, and partner visibility shaped for UNGA-level audiences.</p></article>)}</div>
+        <SectionIntro eyebrow="Africa Unveiled House @ UNGA" title="A flagship New York destination for cultural diplomacy, investment dialogue, and African soft power." copy="A refined house system for delegations, creators, investors, and institutions—rooted in African heritage and built for global rooms." />
+        <div className="motif-divider" aria-hidden="true" />
+        <div className="house-grid">{houseExperiences.map((item) => <article className="house-card reveal" key={item}><span /> <h3>{item}</h3><p>Curated programming, executive hospitality, and partner visibility shaped for UNGA-level audiences across African diplomacy, creative economy, and global presence.</p></article>)}</div>
       </section>
 
       <section className="section ivory" id="live" aria-labelledby="live-title">
@@ -70,9 +113,9 @@ export default function HomePage() {
       </section>
 
       <section className="section atlas" id="atlas" aria-labelledby="atlas-title">
-        <SectionIntro eyebrow="Africa Intelligence Atlas™" title="A future-facing ecosystem intelligence platform." copy="Explore the people, institutions, investments, creative industries, and partnerships shaping Africa's global influence." />
+        <SectionIntro eyebrow="Africa Intelligence Atlas™" title="A future-facing ecosystem intelligence platform." copy="Mapping the people, institutions, markets, and cultural forces shaping Africa's global influence." />
         <div className="atlas-panel reveal">
-          <div className="map-orbit" aria-hidden="true"><span /><span /><span /><span /></div>
+          <AtlasPreview />
           <div className="atlas-content">
             <span className="partner-badge">Powered by ETL GIS Consulting LLC</span>
             <p>Current implementation: a premium interactive preview experience. Future implementation: a real GIS-powered intelligence layer for diplomatic discovery, ecosystem mapping, and strategic engagement.</p>
