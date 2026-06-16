@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Layout({ children, title = 'Africa Unveiled at UNGA', description = 'Africa Unveiled at UNGA 2026 cultural diplomacy media hub.' }) {
@@ -12,7 +13,7 @@ export default function Layout({ children, title = 'Africa Unveiled at UNGA', de
       <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
     <header className="siteHeader">
-      <Link className="brand" href="/"><img src="/logo.svg" alt="" />Africa Unveiled</Link>
+      <Link className="brand" href="/"><Image src="/logo.svg" alt="" width={32} height={32} />Africa Unveiled</Link>
       <nav aria-label="Primary navigation">
         <Link href="/live">Live @ UNGA</Link><Link href="/program/summit">Program</Link><Link href="/partners">Partners</Link><Link href="/events">Affiliate Events</Link><Link href="/engage/story">Submit Story</Link><Link href="/access/login">Login</Link>
       </nav>

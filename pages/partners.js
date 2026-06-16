@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import partners from '../data/partners.json';
 
 const groups = ['Government', 'UN Agencies', 'Foundations', 'Media'];
@@ -14,7 +15,7 @@ export default function Partners() {
           <div className="cards">
             {partners.filter((partner) => partner.category === group).map((partner) => (
               <article className="card" key={partner.name}>
-                <img src={partner.logo} alt="" width="88" height="88" />
+                <Image src={partner.logo} alt="" width={88} height={88} />
                 <h3>{partner.name}</h3>
                 <p>{partner.description}</p>
               </article>

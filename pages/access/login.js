@@ -2,4 +2,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
 
-export default function Login(){ const [form,setForm]=useState({email:'partner@example.com',password:'partner123'}); const [user,setUser]=useState(null); const [error,setError]=useState(''); async function submit(e){e.preventDefault(); setError(''); const res=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(form)}); if(res.ok){const data=await res.json(); localStorage.setItem('au-user',JSON.stringify(data)); setUser(data);} else setError('Invalid login. Try partner@example.com / partner123 or vip@example.com / vip123.');} return <Layout title="Login | Africa Unveiled"><section className="section"><h1>Login</h1><p>Mock role-based access supports public, partner, and VIP experiences.</p>{user&&<p className="notice">Logged in as {user.name} ({user.role}). Visit <Link href="/access/lounge">protected lounge</Link>.</p>}{error&&<p role="alert">{error}</p>}<form className="form" onSubmit={submit}><label>Email<input type="email" value={form.email} onChange={(e)=>setForm({...form,email:e.target.value})}/></label><label>Password<input type="password" value={form.password} onChange={(e)=>setForm({...form,password:e.target.value})}/></label><button>Login</button></form></section></Layout>}
+export default function Login() {
+  const [message, setMessage] = useState('');
+
+  function submit(event) {
+    event.preventDefault();
+    setMessage('Access requests are reviewed by the Africa Unveiled team. Qualified delegates receive partner or VIP instructions directly.');
+  }
+
+  return <Layout title="Access Request | Africa Unveiled"><section className="section"><h1>Invitation and partner access</h1><p>Request access for partner briefings, VIP convenings, media interviews, and accredited UNGA-week programming.</p>{message && <p className="notice">{message}</p>}<form className="form" onSubmit={submit}><label>Work email<input type="email" required placeholder="name@organization.org" /></label><label>Organization<input required placeholder="Organization or institution" /></label><label>Access interest<select defaultValue="Partner Access"><option>Partner Access</option><option>VIP Access</option><option>Media / Accredited Access</option><option>Public Access</option></select></label><button>Request access</button></form><p><Link href="/access/lounge">View access overview</Link>.</p></section></Layout>;
+}

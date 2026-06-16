@@ -87,6 +87,7 @@ export default function HomePage() {
       </section>
 
       <section className="final-cta" aria-labelledby="final-title"><p className="eyebrow">Join the platform</p><h2 id="final-title">Join the platform shaping Africa’s global narrative during UNGA Week.</h2><div><a className="button primary" href="#access">Request Invitation</a><a className="button secondary" href="#partners">Become a Partner</a></div></section>
+      <footer className="platform-footer"><strong>Africa Unveiled</strong><span>UNGA Week · New York · Culture, investment, media, and diplomacy.</span><a href="mailto:partners@africaunveiled.org">partners@africaunveiled.org</a></footer>
     </main>
   );
 }
