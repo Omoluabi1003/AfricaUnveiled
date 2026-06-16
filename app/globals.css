@@ -601,3 +601,128 @@ h1 { max-width: 1080px; margin: 0; font-size: clamp(3.5rem, 8.9vw, 9rem); line-h
   .support-item-card,
   .pathway-card { min-height: auto; }
 }
+
+/* External image background upgrade: URL-only CSS variables, dark navy overlays, gold accents, and gradient fallbacks. */
+.external-image-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  background-image:
+    linear-gradient(90deg, rgba(5,11,22,.98), rgba(5,11,22,.66) 48%, rgba(5,11,22,.88)),
+    var(--external-bg-image),
+    radial-gradient(circle at 72% 35%, rgba(216,177,92,.26), transparent 34%),
+    linear-gradient(135deg, #050b16, #102641);
+  background-size: cover, cover, cover, cover;
+  background-position: center, var(--external-bg-position, center), center, center;
+  filter: saturate(1.12) contrast(1.04);
+}
+.cinematic-hero::before {
+  background-image:
+    linear-gradient(110deg, rgba(7,17,31,.98) 0%, rgba(7,17,31,.88) 38%, rgba(11,31,58,.54) 70%, rgba(7,17,31,.92) 100%),
+    var(--external-bg-image),
+    radial-gradient(circle at 76% 28%, rgba(216,177,92,.24), transparent 31%),
+    linear-gradient(135deg, var(--midnight-navy), var(--deep-royal-blue));
+  background-size: cover;
+  background-position: center, var(--external-bg-position, center), center, center;
+}
+.section-with-external-bg {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-image:
+    linear-gradient(115deg, rgba(5,11,22,.95), rgba(5,11,22,.76) 54%, rgba(8,24,44,.9)),
+    var(--external-bg-image),
+    radial-gradient(circle at 80% 12%, rgba(216,177,92,.25), transparent 30%),
+    linear-gradient(135deg, #050b16, #102641);
+  background-size: cover;
+  background-position: center, var(--external-bg-position, center), center, center;
+  background-attachment: scroll;
+}
+.section-with-external-bg--light {
+  background-image:
+    linear-gradient(115deg, rgba(247,240,226,.96), rgba(247,240,226,.86) 42%, rgba(5,11,22,.72)),
+    var(--external-bg-image),
+    radial-gradient(circle at 84% 10%, rgba(216,177,92,.22), transparent 32%),
+    linear-gradient(135deg, #fffaf0, #eee1c8);
+}
+.section-with-external-bg > * { position: relative; z-index: 1; }
+.section-with-external-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image:
+    linear-gradient(45deg, transparent 0 18px, rgba(216,177,92,.55) 19px, transparent 20px),
+    linear-gradient(-45deg, transparent 0 24px, rgba(31,122,77,.34) 25px, transparent 26px);
+  background-size: 76px 76px, 96px 96px;
+  mask-image: linear-gradient(90deg, transparent, #000 26%, #000 80%, transparent);
+}
+.cinematic-background-panel {
+  display: grid;
+  min-height: clamp(14rem, 31vw, 25rem);
+  margin: 0 0 1.35rem;
+  overflow: hidden;
+  border: 1px solid rgba(241,217,157,.28);
+  border-radius: 34px;
+  place-items: end start;
+  padding: clamp(1rem, 3vw, 2rem);
+  background-image:
+    linear-gradient(90deg, rgba(5,11,22,.94), rgba(5,11,22,.3) 68%, rgba(5,11,22,.88)),
+    var(--external-bg-image),
+    linear-gradient(135deg, #050b16, #102641);
+  background-size: cover;
+  background-position: center, var(--external-bg-position, center), center;
+  box-shadow: var(--dark-shadow);
+}
+.cinematic-background-panel span {
+  max-width: 42rem;
+  border-left: 4px solid var(--gold-2);
+  padding: .8rem 1rem;
+  color: var(--gold-2);
+  background: rgba(5,11,22,.54);
+  font-weight: 950;
+  letter-spacing: .02em;
+  backdrop-filter: blur(12px);
+}
+.africa-visual-story-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.africa-story-card {
+  min-height: 17rem;
+  overflow: hidden;
+  border: 1px solid rgba(207,164,90,.24);
+  border-radius: 28px;
+  padding: 1rem;
+  display: grid;
+  align-items: end;
+  color: var(--ivory);
+  background-image:
+    linear-gradient(180deg, rgba(5,11,22,.08), rgba(5,11,22,.92)),
+    var(--external-bg-image),
+    linear-gradient(135deg, #07111f, #102641);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+}
+.africa-story-card div {
+  border-radius: 20px;
+  padding: .9rem;
+  background: rgba(5,11,22,.62);
+  backdrop-filter: blur(12px);
+}
+.africa-story-card span {
+  color: var(--gold-2);
+  font-size: .66rem;
+  font-weight: 950;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.africa-story-card h3 { margin: .45rem 0; font-size: 1.25rem; line-height: 1.05; letter-spacing: -.035em; }
+.africa-story-card p { margin: 0; color: rgba(247,240,226,.75); font-size: .74rem; line-height: 1.45; }
+@media (max-width: 1100px) { .africa-visual-story-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .africa-visual-story-grid { grid-template-columns: 1fr; } .cinematic-background-panel { min-height: 15rem; } }
