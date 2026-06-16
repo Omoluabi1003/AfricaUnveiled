@@ -1,0 +1,5 @@
+// Protected route: checks the mock localStorage user role before revealing partner/VIP content.
+import { useState } from 'react';
+import Link from 'next/link';
+import Layout from '../../components/Layout';
+export default function Lounge(){ const [user]=useState(()=> typeof window === 'undefined' ? null : JSON.parse(localStorage.getItem('au-user')||'null')); const allowed=user&&['partner','VIP'].includes(user.role); return <Layout title="Protected Partner Lounge | Africa Unveiled"><section className="section"><p className="eyebrow">Access Layer</p><h1>Partner & VIP Lounge</h1>{!user&&<p role="alert">Please <Link href="/access/login">login</Link> to view protected content.</p>}{user&&!allowed&&<p role="alert">Your role ({user.role}) can view public content only.</p>}{allowed&&<div className="card"><h2>Embargoed briefings</h2><p>Welcome {user.name}. This protected route is visible to partner and VIP roles using the mock user store.</p>{user.role==='VIP'&&<p className="notice">VIP-only: private awards seating and bilateral meeting notes.</p>}</div>}</section></Layout> }

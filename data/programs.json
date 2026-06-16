@@ -1,0 +1,6 @@
+{
+  "summit": [{"title":"Ministerial Culture Summit","description":"Policy dialogue on culture, trade, and public diplomacy.","time":"2026-09-21 11:00","speakers":["Min. Ada Nwosu","H.E. Joseph Kato"],"registrationLink":"/access/login?next=/program/summit"}],
+  "exhibition": [{"title":"Living Archives Exhibition","description":"Immersive installations connecting heritage, design, and technology.","time":"2026-09-22 18:00","speakers":["Zara El-Amin"],"registrationLink":"/access/signup"}],
+  "challenge": [{"title":"Creative-Economy Challenge Finals","description":"Founder pitches for media, fashion, film, and gaming ventures.","time":"2026-09-23 14:00","speakers":["Investor Jury"],"registrationLink":"/access/signup"}],
+  "awards": [{"title":"Africa Unveiled Awards Gala","description":"Recognition ceremony for cultural diplomacy and creative leadership.","time":"2026-09-24 19:30","speakers":["Host Committee"],"registrationLink":"/access/login?next=/program/awards"}]
+}

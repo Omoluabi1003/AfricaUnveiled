@@ -1,0 +1,2 @@
+import Layout from '../../components/Layout';
+export default function Signup(){ return <Layout title="Sign up | Africa Unveiled"><section className="section"><h1>Sign up</h1><form className="form"><label>Name<input required /></label><label>Email<input type="email" required /></label><label>Requested role<select><option>public</option><option>partner</option><option>VIP</option></select></label><button type="button">Request access</button></form><p className="notice">Demo only: use the login page mock accounts to enter protected areas.</p></section></Layout> }

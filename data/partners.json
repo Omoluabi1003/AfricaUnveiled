@@ -1,0 +1,6 @@
+[
+  {"name":"Ministry of Culture Delegation","category":"Government","logo":"/logo.svg","description":"Public-sector convener for cultural diplomacy exchange.","website":"https://example.org/government"},
+  {"name":"UN Creative Futures Lab","category":"UN Agencies","logo":"/logo.svg","description":"UN innovation partner supporting youth and creative economy programming.","website":"https://example.org/un"},
+  {"name":"Heritage Futures Foundation","category":"Foundations","logo":"/logo.svg","description":"Philanthropic partner funding archives, artists, and public programming.","website":"https://example.org/foundation"},
+  {"name":"Global Africa Media Network","category":"Media","logo":"/logo.svg","description":"Broadcast and editorial partner for livestreams, interviews, and replays.","website":"https://example.org/media"}
+]

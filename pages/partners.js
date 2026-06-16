@@ -1,0 +1,6 @@
+// Partner ecosystem: searchable category cards for institutions and media partners.
+import { useMemo, useState } from 'react';
+import Layout from '../components/Layout';
+import partners from '../data/partners.json';
+
+export default function Partners(){ const [query,setQuery]=useState(''); const [category,setCategory]=useState('All'); const cats=['All',...new Set(partners.map(p=>p.category))]; const filtered=useMemo(()=>partners.filter(p=>(category==='All'||p.category===category)&&`${p.name} ${p.description}`.toLowerCase().includes(query.toLowerCase())),[query,category]); return <Layout title="Partner Ecosystem | Africa Unveiled"><section className="section"><p className="eyebrow">Partner Ecosystem</p><h1>Institutions behind the hub</h1><div className="filters"><input aria-label="Search partners" placeholder="Search partners" value={query} onChange={(e)=>setQuery(e.target.value)}/><select aria-label="Filter by category" value={category} onChange={(e)=>setCategory(e.target.value)}>{cats.map(c=><option key={c}>{c}</option>)}</select></div><div className="cards">{filtered.map(p=><article className="card" key={p.name}><img src={p.logo} alt="" width="96"/><p className="eyebrow">{p.category}</p><h2>{p.name}</h2><p>{p.description}</p><a className="button" href={p.website}>Visit website</a></article>)}</div></section></Layout> }

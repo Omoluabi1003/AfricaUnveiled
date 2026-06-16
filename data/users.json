@@ -1,0 +1,5 @@
+[
+  {"email":"public@example.com","password":"public123","role":"public","name":"Public Guest"},
+  {"email":"partner@example.com","password":"partner123","role":"partner","name":"Partner Editor"},
+  {"email":"vip@example.com","password":"vip123","role":"VIP","name":"VIP Delegate"}
+]
