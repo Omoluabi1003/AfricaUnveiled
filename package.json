@@ -1,12 +1,11 @@
 {
-  "name": "africa-unveiled-unga",
+  "name": "africa-unveiled",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint ."
+    "start": "next start"
   },
   "dependencies": {
     "next": "^16.2.9",
