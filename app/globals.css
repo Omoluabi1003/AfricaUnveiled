@@ -145,3 +145,82 @@ h1 { max-width: 1080px; margin: 0; font-size: clamp(3.5rem, 8.9vw, 9rem); line-h
   .platform-story-grid { grid-template-columns: 1fr; }
   .tech-partner-footer { align-items: flex-start; flex-direction: column; }
 }
+
+/* African identity system: code-only motifs, textile texture, contour movement, and GIS grid language. */
+:root {
+  --midnight-navy: #07111f;
+  --deep-royal-blue: #0b1f3a;
+  --champagne-gold: #d8b15c;
+  --warm-gold: #c99a3d;
+  --earth-ochre: #a65f2b;
+  --pan-african-green: #1f7a4d;
+  --deep-crimson: #8a1e2d;
+}
+
+.platform-shell { overflow-x: clip; }
+.cinematic-hero { overflow: hidden; background: var(--midnight-navy); }
+.cinematic-hero::before {
+  background:
+    linear-gradient(110deg, rgba(7,17,31,.98) 0%, rgba(7,17,31,.9) 38%, rgba(11,31,58,.62) 70%, rgba(7,17,31,.92) 100%),
+    radial-gradient(circle at 22% 18%, rgba(31,122,77,.18), transparent 26%),
+    radial-gradient(circle at 76% 28%, rgba(216,177,92,.24), transparent 31%),
+    radial-gradient(circle at 68% 78%, rgba(138,30,45,.14), transparent 30%),
+    linear-gradient(135deg, var(--midnight-navy), var(--deep-royal-blue));
+}
+.cinematic-hero::after {
+  opacity: .12;
+  background-image:
+    linear-gradient(45deg, transparent 0 13px, rgba(216,177,92,.35) 13px 14px, transparent 14px 28px),
+    linear-gradient(-45deg, transparent 0 13px, rgba(247,241,229,.22) 13px 14px, transparent 14px 28px),
+    radial-gradient(circle at center, rgba(216,177,92,.18) 0 1px, transparent 1.5px);
+  background-size: 58px 58px, 58px 58px, 22px 22px;
+  mask-image: linear-gradient(90deg, transparent, #000 28%, #000 82%, transparent);
+}
+
+.african-identity-backdrop { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.africa-map-motif { position: absolute; right: clamp(-5rem, 4vw, 4rem); top: 10%; width: clamp(18rem, 42vw, 38rem); height: auto; opacity: .24; filter: drop-shadow(0 30px 80px rgba(0,0,0,.38)); }
+.africa-map-motif path:first-child { fill: rgba(216,177,92,.08); stroke: rgba(216,177,92,.72); stroke-width: 3.2; vector-effect: non-scaling-stroke; }
+.africa-map-motif path:not(:first-child) { fill: none; stroke: rgba(247,241,229,.26); stroke-width: 1.25; stroke-dasharray: 8 13; vector-effect: non-scaling-stroke; }
+.diaspora-arc-grid { position: absolute; inset: auto -4vw 9% auto; width: min(64rem, 82vw); opacity: .5; }
+.diaspora-arc-grid path { fill: none; stroke: rgba(216,177,92,.56); stroke-width: 1.2; stroke-dasharray: 5 12; vector-effect: non-scaling-stroke; }
+.diaspora-arc-grid circle { fill: var(--champagne-gold); filter: drop-shadow(0 0 12px rgba(216,177,92,.72)); }
+.cultural-pattern-overlay { position: absolute; inset: 0; opacity: .18; mix-blend-mode: screen; background:
+    repeating-linear-gradient(90deg, rgba(247,241,229,.1) 0 1px, transparent 1px 18px),
+    repeating-linear-gradient(0deg, rgba(216,177,92,.08) 0 1px, transparent 1px 18px),
+    linear-gradient(135deg, transparent 0 46%, rgba(216,177,92,.2) 47% 49%, transparent 50% 100%);
+  background-size: 100% 100%, 100% 100%, 76px 76px;
+  mask-image: radial-gradient(circle at 68% 44%, #000, transparent 72%);
+}
+.identity-statement { width: fit-content; max-width: 100%; margin: 1rem 0 0; border-left: 3px solid var(--champagne-gold); padding: .7rem 1rem; color: var(--champagne-gold); background: rgba(216,177,92,.08); font-weight: 950; letter-spacing: -.01em; }
+
+.house { position: relative; overflow: hidden; background: radial-gradient(circle at 84% 15%, rgba(166,95,43,.24), transparent 28%), linear-gradient(180deg, var(--midnight-navy), var(--deep-royal-blue)); }
+.house::before, .atlas::before, .metrics::before, .platform-footer::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .12; background-image: linear-gradient(45deg, transparent 0 18px, rgba(216,177,92,.4) 19px, transparent 20px), linear-gradient(-45deg, transparent 0 18px, rgba(247,241,229,.2) 19px, transparent 20px); background-size: 72px 72px; mask-image: linear-gradient(180deg, #000, transparent 72%); }
+.motif-divider { height: 10px; margin: 0 0 1.4rem; border-radius: 999px; background: repeating-linear-gradient(90deg, var(--champagne-gold) 0 22px, var(--earth-ochre) 22px 34px, var(--pan-african-green) 34px 46px, var(--deep-crimson) 46px 58px, transparent 58px 72px); opacity: .8; }
+.house-card { position: relative; overflow: hidden; border-color: rgba(216,177,92,.24); background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.035)); }
+.house-card::after { content: ""; position: absolute; inset: auto 0 0; height: 5px; background: repeating-linear-gradient(90deg, var(--champagne-gold) 0 18px, transparent 18px 28px, var(--pan-african-green) 28px 34px, transparent 34px 44px); opacity: .8; }
+.house-card span { border-radius: 34% 66% 51% 49%; }
+
+.atlas { position: relative; overflow: hidden; background: radial-gradient(circle at 75% 25%, rgba(216,177,92,.16), transparent 30%), linear-gradient(180deg, #050b16, var(--midnight-navy)); }
+.atlas-panel { position: relative; overflow: hidden; border-color: rgba(216,177,92,.24); background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.035)); }
+.atlas-preview-map { position: relative; min-height: 28rem; border: 1px solid rgba(216,177,92,.32); border-radius: 34px; overflow: hidden; background: radial-gradient(circle at 52% 48%, rgba(216,177,92,.16), transparent 45%), rgba(7,17,31,.58); }
+.atlas-coordinate-grid { position: absolute; inset: 0; opacity: .34; background-image: linear-gradient(rgba(247,241,229,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(247,241,229,.18) 1px, transparent 1px); background-size: 44px 44px; mask-image: radial-gradient(circle at 52% 48%, #000, transparent 78%); }
+.atlas-africa { left: 12%; right: auto; top: 5%; width: min(23rem, 72vw); opacity: .7; }
+.atlas-node { position: absolute; border: 1px solid rgba(216,177,92,.45); border-radius: 999px; padding: .28rem .55rem; color: var(--ivory); background: rgba(7,17,31,.76); font-size: .72rem; font-weight: 900; box-shadow: 0 0 0 7px rgba(216,177,92,.08); }
+.node-accra { left: 38%; top: 44%; } .node-lagos { left: 32%; top: 46%; } .node-nairobi { left: 53%; top: 52%; } .node-joburg { left: 49%; top: 76%; } .node-newyork { right: 8%; top: 18%; color: var(--champagne-gold); }
+.atlas-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.atlas-filters button { border-color: rgba(216,177,92,.28); background: linear-gradient(135deg, rgba(216,177,92,.11), rgba(255,255,255,.055)); }
+
+.logo-tile, .metrics-grid article { position: relative; overflow: hidden; }
+.logo-tile::after, .metrics-grid article::after { content: ""; position: absolute; inset: auto 0 0; height: 4px; background: linear-gradient(90deg, var(--champagne-gold), var(--earth-ochre), var(--pan-african-green), var(--deep-crimson)); opacity: .8; }
+.metrics { position: relative; overflow: hidden; background: radial-gradient(circle at 12% 5%, rgba(31,122,77,.16), transparent 28%), #08182c; }
+.platform-footer { position: relative; overflow: hidden; }
+.technology-note { color: rgba(216,177,92,.92); font-weight: 800; }
+
+@media (max-width: 1100px) { .atlas-filters { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+  .africa-map-motif { right: -8rem; top: 11%; width: 24rem; opacity: .18; }
+  .diaspora-arc-grid { right: -18rem; bottom: 12%; width: 44rem; opacity: .34; }
+  .atlas-preview-map { min-height: 22rem; }
+  .atlas-africa { left: -1rem; width: 22rem; }
+  .node-newyork { right: 1rem; }
+}
