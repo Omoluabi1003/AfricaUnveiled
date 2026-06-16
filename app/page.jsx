@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Header from '../components/Header';
+import AfricaIntelligenceAtlasLoader from '../components/AfricaIntelligenceAtlasLoader';
 import { accessTiers, atlasFilters, featuredVoices, footerColumns, heroPanels, houseExperiences, liveDays, metrics, partnerCategories, premiumCards, programs } from '../lib/platformData';
 
 const SectionIntro = ({ eyebrow, title, copy }) => (
@@ -113,14 +114,23 @@ export default function HomePage() {
       </section>
 
       <section className="section atlas" id="atlas" aria-labelledby="atlas-title">
-        <SectionIntro eyebrow="Africa Intelligence Atlas™" title="A future-facing ecosystem intelligence platform." copy="Mapping the people, institutions, markets, and cultural forces shaping Africa's global influence." />
+        <SectionIntro eyebrow="Africa Intelligence Atlas™" title="Mapping Africa’s Cultural Diplomacy Ecosystem" copy="Explore the people, institutions, delegations, creative industries, investment corridors, and cultural forces shaping Africa’s global influence during UN General Assembly Week." />
         <div className="atlas-panel reveal">
-          <AtlasPreview />
           <div className="atlas-content">
             <span className="partner-badge">Powered by ETL GIS Consulting LLC</span>
-            <p>Current implementation: a premium interactive preview experience. Future implementation: a real GIS-powered intelligence layer for diplomatic discovery, ecosystem mapping, and strategic engagement.</p>
-            <div className="atlas-filters">{atlasFilters.map((filter) => <button type="button" key={filter}>{filter}</button>)}</div>
+            <p>The Atlas connects Africa’s soft power landscape to the global convening energy of New York, turning cultural diplomacy into a visible, navigable intelligence layer.</p>
+            <div className="atlas-editorial-tags" aria-label="Atlas intelligence layers">
+              {['Live Hub', 'Coalition Layer', 'Partner Network', 'Cultural Corridors'].map((label) => <span key={label}>{label}</span>)}
+            </div>
+            <div className="atlas-data-grid">
+              <article><strong>10</strong><span>Strategic hubs</span></article>
+              <article><strong>8</strong><span>Africa–NY corridors</span></article>
+              <article><strong>0</strong><span>API keys required</span></article>
+            </div>
+            <div className="atlas-filters" aria-label="Atlas filters">{atlasFilters.map((filter) => <button type="button" key={filter}>{filter}</button>)}</div>
+            <p className="atlas-developer-summary">Geospatial intelligence, enterprise GIS architecture, workflow modernization, AI integration, and location intelligence by ETL GIS Consulting LLC.</p>
           </div>
+          <AfricaIntelligenceAtlasLoader />
         </div>
       </section>
 
