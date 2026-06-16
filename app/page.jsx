@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Header from '../components/Header';
 import AfricaIntelligenceAtlasLoader from '../components/AfricaIntelligenceAtlasLoader';
+import ExternalHeroVideo from '../components/ExternalHeroVideo';
 import { accessTiers, atlasFilters, featuredVoices, footerColumns, heroPanels, houseExperiences, liveDays, metrics, partnerCategories, premiumCards, programs } from '../lib/platformData';
 
 const SectionIntro = ({ eyebrow, title, copy }) => (
@@ -67,6 +68,7 @@ export default function HomePage() {
       <section className="hero-sequence" aria-label="Africa Unveiled platform introduction">
         {heroPanels.map((hero, index) => (
           <article className={`cinematic-hero hero-${hero.id}`} key={hero.id} aria-labelledby={`${hero.id}-title`}>
+            <ExternalHeroVideo panelId={hero.id} />
             <AfricanIdentityBackdrop />
             <div className="hero-orb" aria-hidden="true" />
             <div className="hero-copy reveal">
