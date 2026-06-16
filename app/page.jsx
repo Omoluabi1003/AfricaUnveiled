@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Header from '../components/Header';
 import AfricaIntelligenceAtlasLoader from '../components/AfricaIntelligenceAtlasLoader';
 import ExternalHeroVideo from '../components/ExternalHeroVideo';
+import { backgroundAssets, backgroundStoryAssets } from '../lib/backgroundAssets';
 import { accessPathways, accessTiers, atlasFilters, featuredVoices, footerColumns, heroPanels, houseExperiences, liveDays, metrics, partnerCategories, peopleProfiles, premiumCards, programs, supportItems } from '../lib/platformData';
 
 const SectionIntro = ({ eyebrow, title, copy }) => (
@@ -9,6 +10,41 @@ const SectionIntro = ({ eyebrow, title, copy }) => (
     <p className="eyebrow">{eyebrow}</p>
     <h2>{title}</h2>
     {copy ? <p>{copy}</p> : null}
+  </div>
+);
+
+
+const backgroundStyle = (asset, position = 'center') => ({
+  '--external-bg-image': `url(${asset.url})`,
+  '--external-bg-position': position
+});
+
+const ExternalImageBackdrop = ({ asset, position = 'center', className = '' }) => (
+  <div
+    className={`external-image-backdrop ${className}`}
+    style={backgroundStyle(asset, position)}
+    aria-hidden="true"
+    title={`${asset.title} — ${asset.credit}`}
+  />
+);
+
+const CinematicBackgroundPanel = ({ asset, children, className = '', position = 'center' }) => (
+  <div className={`cinematic-background-panel ${className}`} style={backgroundStyle(asset, position)}>
+    {children}
+  </div>
+);
+
+const AfricaVisualStoryGrid = ({ assets }) => (
+  <div className="africa-visual-story-grid" aria-label="External Africa-first visual sources">
+    {assets.map((asset) => (
+      <article className="africa-story-card reveal" key={asset.id} style={backgroundStyle(asset)}>
+        <div>
+          <span>{asset.theme}</span>
+          <h3>{asset.title}</h3>
+          <p>{asset.credit} · {asset.licenseNote}</p>
+        </div>
+      </article>
+    ))}
   </div>
 );
 
@@ -104,7 +140,8 @@ export default function HomePage() {
 
       <section className="hero-sequence" aria-label="Africa Unveiled platform introduction">
         {heroPanels.map((hero, index) => (
-          <article className={`cinematic-hero hero-${hero.id}`} key={hero.id} aria-labelledby={`${hero.id}-title`}>
+          <article className={`cinematic-hero hero-${hero.id}`} style={backgroundStyle(index === 0 ? backgroundAssets.hero : index === 1 ? backgroundAssets.house : backgroundAssets.live, index === 0 ? 'center 42%' : 'center')} key={hero.id} aria-labelledby={`${hero.id}-title`}>
+            <ExternalImageBackdrop asset={index === 0 ? backgroundAssets.hero : index === 1 ? backgroundAssets.house : backgroundAssets.live} position={index === 0 ? 'center 42%' : 'center'} />
             <ExternalHeroVideo panelId={hero.id} />
             <AfricanIdentityBackdrop />
             <div className="hero-orb" aria-hidden="true" />
@@ -129,20 +166,23 @@ export default function HomePage() {
       <section className="section ivory" id="why" aria-labelledby="why-title">
         <SectionIntro eyebrow="Premium cultural diplomacy" title="Built for the week when diplomacy, capital, culture, and media converge." copy="Minimal by design. Strategic by default. Africa Unveiled gives African soft power an executive-grade platform during UN General Assembly Week." />
         <div className="premium-grid">{premiumCards.map((card) => <Card key={card.eyebrow} {...card} />)}</div>
+        <AfricaVisualStoryGrid assets={backgroundStoryAssets.slice(0, 4)} />
       </section>
 
-      <section className="section house" id="house" aria-labelledby="house-title">
+      <section className="section house section-with-external-bg" style={backgroundStyle(backgroundAssets.house, 'center 58%')} id="house" aria-labelledby="house-title">
         <SectionIntro eyebrow="Africa Unveiled House @ UNGA" title="A flagship New York destination for cultural diplomacy, investment dialogue, and African soft power." copy="A refined house system for delegations, creators, investors, and institutions—rooted in African heritage and built for global rooms." />
+        <CinematicBackgroundPanel asset={backgroundAssets.house} className="house-visual-panel" position="center 58%"><span>Executive diplomacy, African hospitality, and global rooms</span></CinematicBackgroundPanel>
         <div className="motif-divider" aria-hidden="true" />
         <div className="house-grid">{houseExperiences.map((item) => <article className="house-card reveal" key={item}><span /> <h3>{item}</h3><p>Curated programming, executive hospitality, and partner visibility shaped for UNGA-level audiences across African diplomacy, creative economy, and global presence.</p></article>)}</div>
       </section>
 
-      <section className="section ivory" id="live" aria-labelledby="live-title">
+      <section className="section ivory section-with-external-bg section-with-external-bg--light" style={backgroundStyle(backgroundAssets.live)} id="live" aria-labelledby="live-title">
         <SectionIntro eyebrow="Africa Unveiled Live" title="Daily updates, interviews, session replays, and editorial coverage from the center of UNGA Week." />
+        <CinematicBackgroundPanel asset={backgroundAssets.live} className="live-visual-panel"><span>Daily editorial coverage from the UNGA corridor</span></CinematicBackgroundPanel>
         <div className="live-console">{liveDays.map((day) => <article className="day-card reveal" key={day.day}><b>{day.day}</b><h3>{day.theme}</h3><ul>{day.items.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</div>
       </section>
 
-      <section className="section" id="voices" aria-labelledby="voices-title">
+      <section className="section section-with-external-bg" style={backgroundStyle(backgroundAssets.voices, 'center 35%')} id="voices" aria-labelledby="voices-title">
         <SectionIntro eyebrow="Featured Voices" title="A calm, credible stage for the people shaping Africa’s global narrative." />
         <div className="card-grid three">{featuredVoices.map((voice) => <article className="voice-card reveal" key={voice.name}><div className="video-surface" aria-hidden="true"><span>▶</span></div><h3>{voice.name}</h3><p>{voice.role}</p><small>{voice.topic}</small></article>)}</div>
       </section>
@@ -152,12 +192,12 @@ export default function HomePage() {
         <div className="people-grid">{peopleProfiles.map((person) => <PersonCard key={person.name} {...person} />)}</div>
       </section>
 
-      <section className="section ivory" id="program" aria-labelledby="program-title">
+      <section className="section ivory section-with-external-bg section-with-external-bg--light" style={backgroundStyle(backgroundAssets.program)} id="program" aria-labelledby="program-title">
         <SectionIntro eyebrow="Program Architecture" title="A modular diplomatic platform, designed as a premium guest journey." />
         <div className="card-grid three">{programs.map((program) => <article className="program-card reveal" key={program.title}><h3>{program.title}</h3><p>{program.copy}</p></article>)}</div>
       </section>
 
-      <section className="section atlas" id="atlas" aria-labelledby="atlas-title">
+      <section className="section atlas section-with-external-bg" style={backgroundStyle(backgroundAssets.atlas)} id="atlas" aria-labelledby="atlas-title">
         <SectionIntro eyebrow="Africa Intelligence Atlas™" title="Mapping Africa’s Cultural Diplomacy Ecosystem" copy="Explore the people, institutions, delegations, creative industries, investment corridors, and cultural forces shaping Africa’s global influence during UN General Assembly Week." />
         <div className="atlas-panel reveal">
           <div className="atlas-content">
@@ -178,8 +218,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section ivory" id="partners" aria-labelledby="partners-title">
+      <section className="section ivory section-with-external-bg section-with-external-bg--light" style={backgroundStyle(backgroundAssets.partners)} id="partners" aria-labelledby="partners-title">
         <SectionIntro eyebrow="Partner Ecosystem" title="An institutional coalition for African cultural diplomacy at global scale." />
+        <AfricaVisualStoryGrid assets={backgroundStoryAssets.slice(4)} />
         <div className="logo-wall">{partnerCategories.map((partner) => <div className="logo-tile reveal" key={partner}><span>{partner.slice(0, 2)}</span><small>{partner}</small></div>)}</div>
       </section>
 
