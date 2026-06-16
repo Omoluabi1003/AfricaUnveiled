@@ -1,19 +1,15 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
+const isGithubPages = process.env.DEPLOY_TARGET === 'github-pages';
 
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
-  trailingSlash: true,
+  output: isGithubPages ? 'export' : undefined,
+  trailingSlash: isGithubPages,
   images: {
-    unoptimized: true,
+    unoptimized: isGithubPages,
   },
-  ...(isProd
-    ? {
-        basePath: '/AfricaUnveiled',
-        assetPrefix: '/AfricaUnveiled/',
-      }
-    : {}),
+  basePath: isGithubPages ? '/AfricaUnveiled' : '',
+  assetPrefix: isGithubPages ? '/AfricaUnveiled/' : '',
 };
 
 module.exports = nextConfig;
