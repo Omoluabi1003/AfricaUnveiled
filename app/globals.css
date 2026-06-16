@@ -99,3 +99,7 @@ h1 { max-width: 980px; margin: 0; font-size: clamp(3.3rem, 8.5vw, 8.8rem); line-
   .venue-band { align-items: flex-start; flex-direction: column; }
   .button, .hero-actions, .final-cta div, .venue-band div { width: 100%; }
 }
+.platform-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.2rem clamp(1rem, 5vw, 5rem); border-top: 1px solid rgba(255,255,255,.12); color: rgba(248,241,227,.78); background: #06101d; }
+.platform-footer strong { color: var(--ivory); letter-spacing: .02em; }
+.platform-footer a { color: var(--gold-2); font-weight: 900; text-decoration: none; }
+@media (max-width: 760px) { .platform-footer { align-items: flex-start; flex-direction: column; } }
