@@ -1,4 +1,5 @@
 import './globals.css';
+import './external-media.css';
 
 export const metadata = {
   metadataBase: new URL('https://africaunveiled.org'),
