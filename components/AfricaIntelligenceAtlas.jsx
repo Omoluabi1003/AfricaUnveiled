@@ -1,6 +1,7 @@
 'use client';
 
 import { DivIcon } from 'leaflet';
+import AfricaNarrativeFilmLayer from './AfricaNarrativeFilmLayer';
 import { MapContainer, Marker, Popup, Polyline, TileLayer, ZoomControl } from 'react-leaflet';
 
 const africaBounds = [
@@ -19,6 +20,14 @@ const hubMarkers = [
   { name: 'Dakar', type: 'Arts and Policy', coordinates: [14.7167, -17.4677], relevance: 'A francophone cultural and policy corridor for arts, civil society, and Atlantic-facing diplomacy.' },
   { name: 'Cairo', type: 'Civilization and Diplomacy', coordinates: [30.0444, 31.2357], relevance: 'A historic diplomatic and civilization corridor linking North Africa, the Mediterranean, and global institutions.' },
   { name: 'Casablanca', type: 'Finance and Connectivity', coordinates: [33.5731, -7.5898], relevance: 'A finance and air-connectivity node linking African markets to Europe, the Middle East, and the Atlantic.' },
+];
+
+const citySpotlights = [
+  { city: 'Lagos', signal: 'Film, music, fashion, fintech', assetKey: 'africanCities' },
+  { city: 'Nairobi', signal: 'Innovation, climate, startup diplomacy', assetKey: 'innovation' },
+  { city: 'Accra', signal: 'Diaspora gateway and culture', assetKey: 'culturalIdentity' },
+  { city: 'Johannesburg', signal: 'Capital markets and production scale', assetKey: 'africanCities' },
+  { city: 'Addis Ababa', signal: 'African Union and multilateral policy', assetKey: 'ungaConnections' },
 ];
 
 const routeOrigins = ['Lagos', 'Accra', 'Nairobi', 'Johannesburg', 'Addis Ababa', 'Dakar', 'Cairo', 'Casablanca'];
@@ -72,6 +81,17 @@ export default function AfricaIntelligenceAtlas() {
       <div className="atlas-map-label top-left">Live Hub</div>
       <div className="atlas-map-label bottom-left">Cultural Corridors</div>
       <div className="atlas-map-label top-right">Coalition Layer</div>
+      <div className="atlas-city-film-strip" aria-label="African city intelligence previews">
+        {citySpotlights.map((spotlight) => (
+          <article className="atlas-city-film-card" key={spotlight.city}>
+            <AfricaNarrativeFilmLayer assetKey={spotlight.assetKey} compact label={`${spotlight.city} intelligence preview`} />
+            <div>
+              <strong>{spotlight.city}</strong>
+              <span>{spotlight.signal}</span>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   );
 }
