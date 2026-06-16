@@ -3,11 +3,11 @@ import './globals.css';
 export const metadata = {
   metadataBase: new URL('https://africaunveiled.org'),
   title: 'Africa Unveiled | UNGA Cultural Diplomacy Platform',
-  description: 'Africa Unveiled is a premium cultural diplomacy, media, investment, and creative economy platform convening leaders in New York during UN General Assembly Week.',
-  keywords: ['UNGA', 'Africa Unveiled', 'cultural diplomacy', 'Africa investment', 'creative economy', 'New York', 'UN General Assembly Week', 'African soft power', 'diaspora leaders'],
+  description: 'Africa Unveiled is the premium African cultural diplomacy, media, and convening platform for UN General Assembly Week, with platform strategy and digital experience architecture by ETL GIS Consulting LLC.',
+  keywords: ['UNGA', 'Africa Unveiled', 'cultural diplomacy', 'Africa investment', 'creative economy', 'New York', 'UN General Assembly Week', 'African soft power', 'diaspora leaders', 'ETL GIS Consulting LLC'],
   openGraph: {
     title: 'Africa Unveiled | Africa’s Voice. Culture. Investment. Diplomacy.',
-    description: 'A premium UNGA-facing platform for African cultural diplomacy, live programming, partner ecosystems, media, and investment conversations in New York.',
+    description: 'The premium African cultural diplomacy, media, and convening platform for UNGA Week in New York. Developed with ETL GIS Consulting LLC.',
     url: 'https://africaunveiled.org',
     siteName: 'Africa Unveiled',
     type: 'website',
@@ -16,7 +16,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Africa Unveiled | UNGA Cultural Diplomacy Platform',
-    description: 'Convening leaders, creators, policymakers, investors, and institutions shaping Africa’s global future during UN General Assembly Week.',
+    description: 'A premium UNGA platform convening leaders, creators, policymakers, investors, and institutions shaping Africa’s global future.',
   },
 };
 
