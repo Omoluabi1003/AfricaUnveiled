@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import AfricaIntelligenceAtlasLoader from '../components/AfricaIntelligenceAtlasLoader';
 import ExternalHeroVideo from '../components/ExternalHeroVideo';
 import { backgroundAssets, backgroundStoryAssets } from '../lib/backgroundAssets';
+import { brand, officialContent } from '../lib/officialContent';
 import { accessPathways, accessTiers, atlasFilters, featuredVoices, footerColumns, heroPanels, houseExperiences, liveDays, metrics, partnerCategories, peopleProfiles, premiumCards, programs, supportItems } from '../lib/platformData';
 
 const SectionIntro = ({ eyebrow, title, copy }) => (
@@ -102,6 +103,27 @@ const AfricaMapMotif = ({ className = '' }) => (
 
 const CulturalPatternOverlay = ({ className = '' }) => <div className={`cultural-pattern-overlay ${className}`} aria-hidden="true" />;
 
+const CountdownTimer = () => (
+  <div className="countdown-strip reveal" aria-label="Countdown to September 2026">
+    {[['Launch window', 'September 2026'], ['Host city', 'New York City'], ['Context', 'UNGA 81'], ['Theme', 'Sustainable development']].map(([label, value]) => <article key={label}><strong>{value}</strong><span>{label}</span></article>)}
+  </div>
+);
+
+const SearchPlaceholder = () => (
+  <form className="search-placeholder reveal" role="search" action="/news">
+    <label htmlFor="site-search">Search Africa Unveiled</label>
+    <input id="site-search" name="q" placeholder="Search programme, speakers, media, partners..." />
+    <button type="submit">Search</button>
+  </form>
+);
+
+const SocialShare = () => (
+  <div className="social-share reveal" aria-label="Social sharing buttons">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://africaunveiled.org">Share on LinkedIn</a>
+    <a href="https://twitter.com/intent/tweet?text=Africa%20Unveiled%202026&url=https://africaunveiled.org">Share on X</a>
+  </div>
+);
+
 const DiasporaArcGrid = () => (
   <svg className="diaspora-arc-grid" viewBox="0 0 900 520" aria-hidden="true" focusable="false">
     <path d="M190 333C302 176 523 91 764 112" />
@@ -138,6 +160,8 @@ export default function HomePage() {
     <main className="platform-shell">
       <Header />
 
+      <div className="announcement-ribbon" role="status" aria-label="Africa Unveiled 2026 announcement"><strong>AFRICA UNVEILED 2026</strong><span>September 2026 | New York City | On the Sidelines of the 81st United Nations General Assembly (UNGA 81)</span></div>
+
       <section className="hero-sequence" aria-label="Africa Unveiled platform introduction">
         {heroPanels.map((hero, index) => (
           <article className={`cinematic-hero hero-${hero.id}`} style={backgroundStyle(index === 0 ? backgroundAssets.hero : index === 1 ? backgroundAssets.house : backgroundAssets.live, index === 0 ? 'center 42%' : 'center')} key={hero.id} aria-labelledby={`${hero.id}-title`}>
@@ -149,7 +173,7 @@ export default function HomePage() {
               <p className="eyebrow">{hero.eyebrow}</p>
               <h1 id={`${hero.id}-title`}>{hero.headline}</h1>
               <p className="hero-lede">{hero.copy}</p>
-              {index === 0 ? <p className="identity-statement">Africa is not a backdrop. Africa is the thesis.</p> : null}
+              {index === 0 ? <p className="identity-statement">{brand.theme}</p> : null}
               <div className="hero-actions" aria-label={`${hero.eyebrow} calls to action`}>
                 <a className="button primary" href={hero.primaryHref}>{hero.primary}</a>
                 <a className="button secondary" href={hero.secondaryHref}>{hero.secondary}</a>
@@ -163,9 +187,10 @@ export default function HomePage() {
         ))}
       </section>
 
+      <CountdownTimer />
       <section className="section ivory" id="why" aria-labelledby="why-title">
-        <SectionIntro eyebrow="Premium cultural diplomacy" title="Built for the week when diplomacy, capital, culture, and media converge." copy="Minimal by design. Strategic by default. Africa Unveiled gives African soft power an executive-grade platform during UN General Assembly Week." />
-        <div className="premium-grid">{premiumCards.map((card) => <Card key={card.eyebrow} {...card} />)}</div>
+        <SectionIntro eyebrow="Premium cultural diplomacy" title="Built for the week when diplomacy, capital, culture, and media converge." copy={officialContent.about} />
+        <SearchPlaceholder /><div className="premium-grid">{premiumCards.map((card) => <Card key={card.eyebrow} {...card} />)}</div>
         <AfricaVisualStoryGrid assets={backgroundStoryAssets.slice(0, 4)} />
       </section>
 
@@ -249,7 +274,7 @@ export default function HomePage() {
         <div className="metrics-grid">{metrics.map(([value, label]) => <article className="reveal" key={label}><strong>{value}</strong><span>{label}</span></article>)}</div>
       </section>
 
-      <section className="final-cta" aria-labelledby="final-title"><p className="eyebrow">Join the platform</p><h2 id="final-title">Shape Africa’s global narrative during UNGA Week.</h2><div><a className="button primary" href="#access">Request Invitation</a><a className="button secondary" href="#partners">Become a Partner</a></div></section>
+      <section className="final-cta" aria-labelledby="final-title"><p className="eyebrow">Join the platform</p><h2 id="final-title">Shape Africa’s global narrative during UNGA Week.</h2><div><a className="button primary" href="/registration">Request Invitation</a><a className="button secondary" href="/partners">Become a Partner</a></div><SocialShare /></section>
       <section className="section tech-partner" aria-labelledby="tech-partner-title">
         <div className="tech-partner-card reveal">
           <p className="eyebrow">Technology & Intelligence Partner</p>
@@ -261,8 +286,8 @@ export default function HomePage() {
       </section>
 
       <footer className="platform-footer">
-        <div className="footer-brand"><strong>Africa Unveiled</strong><p>Premium African cultural diplomacy, media, and convening platform for UN General Assembly Week.</p><small>Developed by ETL GIS Consulting LLC</small></div>
-        <nav className="footer-columns" aria-label="Footer navigation">{footerColumns.map((column) => <div key={column.title}><h3>{column.title}</h3>{column.links.map((link) => link === 'About the Platform' ? <Link href="/about/platform" key={link}>{link}</Link> : <a href={link === 'Developed by ETL GIS Consulting LLC' ? 'https://etlgis.com' : link === 'Africa Intelligence Atlas™' ? '#atlas' : '#'} key={link}>{link}</a>)}</div>)}</nav>
+        <div className="footer-brand"><strong>Africa Unveiled</strong><p>Culture. Creativity. Commerce. Diplomacy.</p><small>Hosted and Convened by PRINCEWOOD GLOBAL ASSOCIATES LTD</small><small>Developed by ETL GIS Consulting LLC</small></div>
+        <nav className="footer-columns" aria-label="Footer navigation">{footerColumns.map((column) => <div key={column.title}><h3>{column.title}</h3>{column.links.map((link) => link === 'About the Platform' ? <Link href="/about/platform" key={link}>{link}</Link> : <Link href={link === 'Africa Intelligence Atlas™' ? '/#atlas' : link === 'Developed by ETL GIS Consulting LLC' ? 'https://etlgis.com' : `/${link.toLowerCase().replaceAll(' ', '-').replace('africa-unveiled-house', 'house')}`} key={link}>{link}</Link>)}</div>)}</nav>
         <p className="technology-note">Enterprise GIS • AI Integration • Workflow Modernization • Location Intelligence</p>
       </footer>
     </main>
