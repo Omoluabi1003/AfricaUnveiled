@@ -2,25 +2,25 @@
   {
     "name": "Ministry of Culture Delegation",
     "category": "Government",
-    "logo": "/logo.svg",
+    "logo": "https://raw.githubusercontent.com/Omoluabi1003/AfricaUnveiled/main/Africa%20Unveiled%20logo.jpeg",
     "description": "Public-sector convener supporting cultural diplomacy exchange during UNGA."
   },
   {
     "name": "UN Creative Futures Lab",
     "category": "UN Agencies",
-    "logo": "/logo.svg",
+    "logo": "https://raw.githubusercontent.com/Omoluabi1003/AfricaUnveiled/main/Africa%20Unveiled%20logo.jpeg",
     "description": "UN innovation partner advancing youth participation and creative economy programming."
   },
   {
     "name": "Heritage Futures Foundation",
     "category": "Foundations",
-    "logo": "/logo.svg",
+    "logo": "https://raw.githubusercontent.com/Omoluabi1003/AfricaUnveiled/main/Africa%20Unveiled%20logo.jpeg",
     "description": "Philanthropic partner investing in archives, artists, and public programming."
   },
   {
     "name": "Global Africa Media Network",
     "category": "Media",
-    "logo": "/logo.svg",
+    "logo": "https://raw.githubusercontent.com/Omoluabi1003/AfricaUnveiled/main/Africa%20Unveiled%20logo.jpeg",
     "description": "Broadcast and editorial partner for livestreams, interviews, and replay coverage."
   }
 ]

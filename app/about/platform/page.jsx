@@ -12,7 +12,7 @@ const platformSections = [
   },
   {
     title: 'Technology Architecture',
-    copy: 'ETL GIS Consulting LLC serves as the technology and platform partner behind Africa Unveiled, bringing enterprise GIS architecture, workflow automation, records modernization, AI-assisted operational systems, data integration, and location intelligence into the platform strategy.',
+    copy: 'ETL GIS Consulting LLC in Florida, USA serves as the technology and platform partner behind Africa Unveiled, bringing enterprise GIS architecture, workflow automation, records modernization, AI-assisted operational systems, data integration, and location intelligence into the platform strategy.',
   },
   {
     title: 'Future Vision',
@@ -22,7 +22,7 @@ const platformSections = [
 
 export const metadata = {
   title: 'Why Africa Unveiled Is Different | Platform Architecture',
-  description: 'Learn how Africa Unveiled operates as a premium African cultural diplomacy platform with technology and intelligence architecture by ETL GIS Consulting LLC.',
+  description: 'Learn how Africa Unveiled operates as a premium African cultural diplomacy platform with technology and intelligence architecture by ETL GIS Consulting LLC in Florida, USA.',
 };
 
 export default function PlatformPage() {

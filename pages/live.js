@@ -10,7 +10,7 @@ export default function Live() {
       <main className="section">
         <h1>Live @ UNGA</h1>
         <p className="lede">Watch the placeholder livestream and browse the latest scheduled sessions and replays.</p>
-        <video className="videoFrame" controls poster="/logo.svg">
+        <video className="videoFrame" controls poster="https://raw.githubusercontent.com/Omoluabi1003/AfricaUnveiled/main/Africa%20Unveiled%20logo.jpeg">
           <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
         </video>
         <h2>Schedule</h2>
