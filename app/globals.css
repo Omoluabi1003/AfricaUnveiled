@@ -766,3 +766,80 @@ h1 { max-width: 1080px; margin: 0; font-size: clamp(3.5rem, 8.9vw, 9rem); line-h
 .search-placeholder button, .social-share a { border: 0; border-radius: 999px; padding: .95rem 1.1rem; color: #000; background: var(--royal-gold); font-weight: 950; text-decoration: none; }
 .social-share { margin-top: 1rem; display: flex; justify-content: center; gap: .7rem; flex-wrap: wrap; }
 @media (max-width: 760px) { .countdown-strip { grid-template-columns: 1fr; } }
+
+/* External URL branding and page backgrounds. */
+:root {
+  --royal-gold: #C8A95A;
+  --deep-green: #0E5A4A;
+}
+
+.brand-logo {
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1px solid rgba(200, 169, 90, .62);
+  border-radius: 50%;
+  object-fit: cover;
+  background: #050b16;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .22);
+}
+
+.official-page {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  background:
+    linear-gradient(120deg, rgba(0, 0, 0, .9), rgba(14, 90, 74, .68) 48%, rgba(0, 0, 0, .86)),
+    radial-gradient(circle at 18% 0%, rgba(200, 169, 90, .28), transparent 34%),
+    #050b16;
+}
+
+.official-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background-image: var(--official-page-bg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: .42;
+  filter: saturate(1.08) contrast(1.08) brightness(.62);
+  transform: translateZ(0);
+}
+
+.official-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    linear-gradient(105deg, rgba(0, 0, 0, .88), rgba(14, 90, 74, .58) 52%, rgba(0, 0, 0, .82)),
+    radial-gradient(circle at 78% 24%, rgba(200, 169, 90, .32), transparent 32%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.035) 0 1px, transparent 1px 22px);
+}
+
+.official-hero, .official-grid, .official-actions, .static-form, .external-gallery, .official-footer-cta {
+  position: relative;
+  z-index: 1;
+}
+
+.background-credit {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 1rem;
+  border: 1px solid rgba(200, 169, 90, .36);
+  border-radius: 999px;
+  padding: .45rem .72rem;
+  color: rgba(255, 255, 255, .78);
+  background: rgba(0, 0, 0, .36);
+  font-size: .72rem;
+  font-weight: 850;
+}
+
+.official-card, .speaker-profile, .static-form, .official-footer-cta {
+  border-color: rgba(200, 169, 90, .24) !important;
+  background: linear-gradient(145deg, rgba(0, 0, 0, .58), rgba(14, 90, 74, .26)) !important;
+  color: #fff;
+  backdrop-filter: blur(16px) saturate(1.18);
+}

@@ -3,13 +3,14 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { navLinks } from '../lib/platformData';
+import { africaUnveiledLogoUrl } from '../lib/backgroundAssets';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label="Africa Unveiled home">
-        <span className="brand-sigil">AU</span>
+        <img className="brand-logo" src={africaUnveiledLogoUrl} alt="" />
         <span>Africa Unveiled</span>
       </Link>
       <button className="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded={open} onClick={() => setOpen(!open)}>

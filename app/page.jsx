@@ -226,7 +226,7 @@ export default function HomePage() {
         <SectionIntro eyebrow="Africa Intelligence Atlas™" title="Mapping Africa’s Cultural Diplomacy Ecosystem" copy="Explore the people, institutions, delegations, creative industries, investment corridors, and cultural forces shaping Africa’s global influence during UN General Assembly Week." />
         <div className="atlas-panel reveal">
           <div className="atlas-content">
-            <span className="partner-badge">Powered by ETL GIS Consulting LLC</span>
+            <span className="partner-badge">Powered by ETL GIS Consulting LLC in Florida, USA.</span>
             <p>The Atlas connects Africa’s soft power landscape to the global convening energy of New York, turning cultural diplomacy into a visible, navigable intelligence layer.</p>
             <div className="atlas-editorial-tags" aria-label="Atlas intelligence layers">
               {['Live Hub', 'Coalition Layer', 'Partner Network', 'Cultural Corridors'].map((label) => <span key={label}>{label}</span>)}
@@ -237,7 +237,7 @@ export default function HomePage() {
               <article><strong>0</strong><span>API keys required</span></article>
             </div>
             <div className="atlas-filters" aria-label="Atlas filters">{atlasFilters.map((filter) => <button type="button" key={filter}>{filter}</button>)}</div>
-            <p className="atlas-developer-summary">Geospatial intelligence, enterprise GIS architecture, workflow modernization, AI integration, and location intelligence by ETL GIS Consulting LLC.</p>
+            <p className="atlas-developer-summary">Geospatial intelligence, enterprise GIS architecture, workflow modernization, AI integration, and location intelligence by ETL GIS Consulting LLC in Florida, USA.</p>
           </div>
           <AfricaIntelligenceAtlasLoader />
         </div>
@@ -256,7 +256,7 @@ export default function HomePage() {
 
       <section className="section intelligence" id="intelligence" aria-labelledby="intelligence-title">
         <SectionIntro eyebrow="Built on Intelligence" title="Connecting Culture, Policy, Investment, and Influence" copy="Africa Unveiled leverages modern digital architecture, ecosystem intelligence, and strategic engagement design to support meaningful collaboration across governments, institutions, investors, creators, and development partners." />
-        <p className="supporting-statement reveal">Platform strategy, geospatial intelligence, and digital experience architecture by ETL GIS Consulting LLC.</p>
+        <p className="supporting-statement reveal">Platform strategy, geospatial intelligence, and digital experience architecture by ETL GIS Consulting LLC in Florida, USA.</p>
       </section>
 
       <section className="section access-pathways" id="pathways" aria-labelledby="pathways-title">
@@ -279,15 +279,15 @@ export default function HomePage() {
         <div className="tech-partner-card reveal">
           <p className="eyebrow">Technology & Intelligence Partner</p>
           <h2 id="tech-partner-title">Built for the Future of African Diplomacy</h2>
-          <p>Africa Unveiled is powered by ETL GIS Consulting LLC, a Florida-based modernization and geospatial intelligence firm specializing in enterprise GIS architecture, workflow automation, records modernization, AI-assisted operational systems, data integration, and location intelligence solutions.</p>
+          <p>Africa Unveiled is powered by ETL GIS Consulting LLC in Florida, USA, a modernization and geospatial intelligence firm specializing in enterprise GIS architecture, workflow automation, records modernization, AI-assisted operational systems, data integration, and location intelligence solutions.</p>
           <p>By combining cultural diplomacy, strategic storytelling, ecosystem intelligence, and digital engagement, the platform helps governments, institutions, creators, investors, and development partners build meaningful connections during UN General Assembly Week.</p>
-          <div className="tech-partner-footer"><strong>Developed by ETL GIS Consulting LLC</strong><Link className="button secondary" href="/about/platform">Learn About the Platform Architecture</Link></div>
+          <div className="tech-partner-footer"><strong>Developed by ETL GIS Consulting LLC in Florida, USA.</strong><Link className="button secondary" href="/about/platform">Learn About the Platform Architecture</Link></div>
         </div>
       </section>
 
       <footer className="platform-footer">
-        <div className="footer-brand"><strong>Africa Unveiled</strong><p>Culture. Creativity. Commerce. Diplomacy.</p><small>Hosted and Convened by PRINCEWOOD GLOBAL ASSOCIATES LTD</small><small>Developed by ETL GIS Consulting LLC</small></div>
-        <nav className="footer-columns" aria-label="Footer navigation">{footerColumns.map((column) => <div key={column.title}><h3>{column.title}</h3>{column.links.map((link) => link === 'About the Platform' ? <Link href="/about/platform" key={link}>{link}</Link> : <Link href={link === 'Africa Intelligence Atlas™' ? '/#atlas' : link === 'Developed by ETL GIS Consulting LLC' ? 'https://etlgis.com' : `/${link.toLowerCase().replaceAll(' ', '-').replace('africa-unveiled-house', 'house')}`} key={link}>{link}</Link>)}</div>)}</nav>
+        <div className="footer-brand"><strong>Africa Unveiled</strong><p>Culture. Creativity. Commerce. Diplomacy.</p><small>Hosted and Convened by PRINCEWOOD GLOBAL ASSOCIATES LTD</small><small>Developed by ETL GIS Consulting LLC in Florida, USA.</small></div>
+        <nav className="footer-columns" aria-label="Footer navigation">{footerColumns.map((column) => <div key={column.title}><h3>{column.title}</h3>{column.links.map((link) => link === 'About the Platform' ? <Link href="/about/platform" key={link}>{link}</Link> : <Link href={link === 'Africa Intelligence Atlas™' ? '/#atlas' : link === 'Developed by ETL GIS Consulting LLC in Florida, USA.' ? 'https://etlgis.com' : `/${link.toLowerCase().replaceAll(' ', '-').replace('africa-unveiled-house', 'house')}`} key={link}>{link}</Link>)}</div>)}</nav>
         <p className="technology-note">Enterprise GIS • AI Integration • Workflow Modernization • Location Intelligence</p>
       </footer>
     </main>

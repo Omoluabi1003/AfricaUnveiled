@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Header from './Header';
+import { pageBackgroundAssets } from '../lib/backgroundAssets';
 import { brand, convener, externalAssets, mediaCentre, officialContent, pageContent, programmeDays, registrationPortals, sponsorshipItems } from '../lib/officialContent';
 
 const slugify = (label) => label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -34,10 +35,13 @@ function ContentBlocks({ page }) {
 
 export default function OfficialPage({ slug }) {
   const page = pageContent[slug];
+  const background = pageBackgroundAssets[slug] || pageBackgroundAssets['/'];
+  const pageStyle = { '--official-page-bg': `url(${background.url})` };
   return (
-    <main className="platform-shell official-page">
+    <main className="platform-shell official-page" style={pageStyle}>
       <Header />
       <section className="official-hero">
+        <p className="background-credit">{background.title} · {background.credit}</p>
         <p className="eyebrow">{page.eyebrow}</p>
         <h1>{page.title}</h1>
         <p>{page.copy}</p>
