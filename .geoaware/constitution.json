@@ -1,0 +1,36 @@
+{
+  "extends": "GeoAware OS v1.0.0",
+  "source": "https://github.com/Omoluabi1003/GeoAware-OS",
+  "founder": {
+    "name": "Paul Iyogun",
+    "title": "Founder and Chief Architect",
+    "organization": "ETL GIS Consulting LLC"
+  },
+  "local_product": {
+    "name": "Africa Unveiled at UNGA",
+    "mission": "Provide a modern, responsive media hub for Africa Unveiled at UNGA 2026 that supports discovery of agenda programming, partner participation, affiliate events, and submitted stories without distracting from the content."
+  },
+  "inherits": [
+    "GDL",
+    "GEC",
+    "GPC",
+    "GAIC",
+    "GDS"
+  ],
+  "design_principles": [
+    "Geography-first discovery: orient users through place, context, and meaningful spatial relationships.",
+    "Calm guidance: let technology quietly support exploration without adding unnecessary friction or spectacle.",
+    "Human-centered restraint: prioritize clarity, dignity, and usefulness over novelty.",
+    "Context preservation: keep local product goals, audience needs, and cultural intent visible in design decisions.",
+    "Coherent systems: align content, navigation, data, and interaction patterns so the experience feels intentional."
+  ],
+  "quality_gate": {
+    "requires": [
+      "performance",
+      "accessibility",
+      "restraint",
+      "product coherence"
+    ],
+    "policy": "Changes should preserve application behavior unless explicitly scoped otherwise, avoid unnecessary dependencies, and demonstrate alignment with the local product mission."
+  }
+}

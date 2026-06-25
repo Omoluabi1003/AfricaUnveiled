@@ -20,3 +20,8 @@ Open http://localhost:3000.
 ## Data sources
 
 Sample JSON data lives in `data/`. API routes persist event and story submissions back to JSON files for local development.
+
+## GeoAware OS Governance
+
+This repository follows GeoAware OS v1.0.0, a design and engineering philosophy founded by Paul Iyogun for calm, geography-first digital experiences where technology quietly guides discovery. Governance details are maintained in `.geoaware/constitution.json`.
+
