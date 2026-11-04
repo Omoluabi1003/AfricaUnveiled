@@ -1,5 +1,19 @@
 # Africa Unveiled at UNGA
 
+## Project at a glance
+
+**Category:** Africa Unveiled at UNGA 2026 media and events hub  
+**Purpose:** Present agenda, partner activity and story contributions in an event-focused web experience  
+**Audience:** Users, engineers, reviewers and potential partners  
+**Repository:** https://github.com/Omoluabi1003/AfricaUnveiled
+
+**Implementation and evidence:** Documented roles use mock access; local JSON submissions and demo credentials are not production authentication or durable storage.
+
+Use the sections below for the detailed product description, engineering workflow and any available setup instructions. Roadmap statements are not guarantees of deployed functionality.
+
+---
+
+
 A modern, responsive Next.js media hub for **Africa Unveiled at UNGA 2026**. The app includes a homepage, Live @ UNGA agenda hub, program architecture pages, partner search, affiliate event submissions, mock role-based access, and a story submission showcase.
 
 ## Run locally
